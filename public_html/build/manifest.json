@@ -1,0 +1,112 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-DvpVcXO8.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/fomantic/semantic.min.css": {
+    "file": "assets/semantic-0A0IOBeD.css",
+    "src": "resources/css/fomantic/semantic.min.css",
+    "isEntry": true
+  },
+  "resources/css/fomantic/semantic.min.js": {
+    "file": "assets/semantic.min-Bvrdv6He.js",
+    "name": "semantic.min",
+    "src": "resources/css/fomantic/semantic.min.js",
+    "isEntry": true
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/Lato-Bold.woff": {
+    "file": "assets/Lato-Bold-wY382ETl.woff",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/Lato-Bold.woff"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/Lato-Bold.woff2": {
+    "file": "assets/Lato-Bold-C7pcewce.woff2",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/Lato-Bold.woff2"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/Lato-BoldItalic.woff": {
+    "file": "assets/Lato-BoldItalic-CyqUSoWo.woff",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/Lato-BoldItalic.woff"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/Lato-BoldItalic.woff2": {
+    "file": "assets/Lato-BoldItalic-CE8bOGPL.woff2",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/Lato-BoldItalic.woff2"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/Lato-Italic.woff": {
+    "file": "assets/Lato-Italic-B2g7bqfu.woff",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/Lato-Italic.woff"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/Lato-Italic.woff2": {
+    "file": "assets/Lato-Italic-ByIXjBkG.woff2",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/Lato-Italic.woff2"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/Lato-Regular.woff": {
+    "file": "assets/Lato-Regular-B4K7iWyw.woff",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/Lato-Regular.woff"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/Lato-Regular.woff2": {
+    "file": "assets/Lato-Regular-BW3sfrMs.woff2",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/Lato-Regular.woff2"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Bold.woff": {
+    "file": "assets/LatoLatin-Bold-3jSHHqMa.woff",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Bold.woff"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Bold.woff2": {
+    "file": "assets/LatoLatin-Bold-2rjGE9tW.woff2",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Bold.woff2"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-BoldItalic.woff": {
+    "file": "assets/LatoLatin-BoldItalic-C8__Ym0p.woff",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-BoldItalic.woff"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-BoldItalic.woff2": {
+    "file": "assets/LatoLatin-BoldItalic-C9m-OoxS.woff2",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-BoldItalic.woff2"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Italic.woff": {
+    "file": "assets/LatoLatin-Italic-DIdAXe0I.woff",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Italic.woff"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Italic.woff2": {
+    "file": "assets/LatoLatin-Italic-CLngjSTf.woff2",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Italic.woff2"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Regular.woff": {
+    "file": "assets/LatoLatin-Regular-CdsSShIl.woff",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Regular.woff"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Regular.woff2": {
+    "file": "assets/LatoLatin-Regular-BMMSGzFa.woff2",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/LatoLatin-Regular.woff2"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/brand-icons.woff": {
+    "file": "assets/brand-icons-CEJbCg16.woff",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/brand-icons.woff"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/brand-icons.woff2": {
+    "file": "assets/brand-icons-UxlILjvJ.woff2",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/brand-icons.woff2"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/icons.woff": {
+    "file": "assets/icons-DOXgCApm.woff",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/icons.woff"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/icons.woff2": {
+    "file": "assets/icons-BUswJgRo.woff2",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/icons.woff2"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/outline-icons.woff": {
+    "file": "assets/outline-icons-DFnMcJPd.woff",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/outline-icons.woff"
+  },
+  "resources/css/fomantic/themes/default/assets/fonts/outline-icons.woff2": {
+    "file": "assets/outline-icons-DGzu1beS.woff2",
+    "src": "resources/css/fomantic/themes/default/assets/fonts/outline-icons.woff2"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-B6YXoYWk.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
