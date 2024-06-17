@@ -1,0 +1,12 @@
+#!/bin/sh
+unset GIT_INDEX_FILE
+
+export DOMAIN=everton3x.serv00.net
+export PUBLIC=public_html
+export LOGIN=everton3x
+export VISIBILITY=pub
+export REPONAME=contas6
+
+export GIT_WORK_TREE="/usr/home/$LOGIN/domains/$DOMAIN/$PUBLIC/"
+export GIT_DIR="/usr/home/$LOGIN/repo/git/$VISIBILITY/$REPONAME/"
+/usr/local/bin/git checkout -f
