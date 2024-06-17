@@ -4,7 +4,7 @@
         <i class="sidebar icon"></i>
         {{-- Menu --}}
     </a>
-    <a class="header item hidden-on-mobile" href="{{ route('welcome') }}">{{ config('app.name') }}</a>
+    <a class="header item hidden-on-mobile" href="{{ route('welcome') }}">{{ config('app.name') }} Hook</a>
     <a class="item hidden-on-mobile" href="{{ route('welcome') }}">{{ periodo_fmt(session('periodo') ?? date('Y-m')) }}</a>
     <div class="right item">
         <form class="ui form" method="POST" action="{{ route('periodo.select') }}">
