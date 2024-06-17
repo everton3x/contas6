@@ -1,4 +1,4 @@
-<div @class(['required' => $attributes->get('required'), 'four wide field', 'error' => $errors->get($attributes->get('id') ?? 'agrupador')])>
+<div @class(['required' => $attributes->get('required'), 'four wide' => !$agent->isMobile(),'field', 'error' => $errors->get($attributes->get('id') ?? 'agrupador')])>
     <label for="{{$attributes->get('id') ?? 'agrupador'}}">Agrupador</label>
     <input type="text" name="{{$attributes->get('name') ?? 'agrupador'}}" id="{{$attributes->get('id') ?? 'agrupador'}}" {{ $attributes->except('label', 'name', 'id') }} list="agrupadores">
     @error($attributes->get('id') ?? 'agrupador')

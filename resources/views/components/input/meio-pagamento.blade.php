@@ -1,4 +1,4 @@
-<div @class(['required' => $attributes->get('required'), 'three wide field', 'error' => $errors->get($attributes->get('id') ?? 'mp')])>
+<div @class(['required' => $attributes->get('required'), 'three wide' => !$agent->isMobile(),'field', 'error' => $errors->get($attributes->get('id') ?? 'mp')])>
     <label for="{{$attributes->get('id') ?? 'mp'}}">Meio de Pagamento</label>
     <input type="text" name="{{$attributes->get('name') ?? 'mp'}}" id="{{$attributes->get('id') ?? 'mp'}}" list="mps" {{ $attributes->except('id', 'name') }}>
     @error($attributes->get('id') ?? 'mp')
