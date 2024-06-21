@@ -1,10 +1,36 @@
+@php
+    switch ($route) {
+        case 'pessoa.list':
+            $title = 'Pessoas';
+            break;
+        case 'agrupador.list':
+            $title = 'Agrupadores';
+            break;
+        case 'localizador.list':
+            $title = 'Localizadores';
+            break;
+        case 'mp.list':
+            $title = 'Meios de pagamento';
+            break;
+
+        default:
+            throw new \Exception("Rota inválida", 1);
+
+            break;
+    }
+@endphp
 <x-app-layout>
     <x-slot name="title">
         {{ $title }}
     </x-slot>
 
     <div class="ui container">
-        <div class="ui dividing header">Detalhes para {{ $item }}</div>
+        <div class="ui dividing header">
+            <div class="content">
+                Detalhes para {{ $item }}
+                <div class="sub header">{{ $title }}</div>
+            </div>
+        </div>
     </div>
 
     <div class="ui basic menu">
