@@ -111,12 +111,12 @@
                     <tr>
                         <td class="left aligned">{{ data_fmt($gasto->gastoem) }}</td>
                         <td class="right aligned">{{ money_fmt($gasto->valor) }}</td>
-                        <td class="left aligned">{{ $gasto->credor }}</td>
-                        <td class="left aligned">{{ $gasto->mp }}</td>
+                        <td class="left aligned"><a href="{{ route('pessoa.show', $gasto->credor) }}">{{ $gasto->credor }}</a></td>
+                        <td class="left aligned"><a href="{{ route('mp.show', $gasto->mp) }}">{{ $gasto->mp }}</a></td>
                         <td class="left aligned">{{ $gasto->observacao }}</td>
                         <td class="left aligned">{{ data_fmt($gasto->vencimento) }}</td>
-                        <td class="left aligned">{{ $gasto->agrupador }}</td>
-                        <td class="left aligned">{{ $gasto->localizador }}</td>
+                        <td class="left aligned"><a href="{{ route('agrupador.show', $gasto->agrupador) }}">{{ $gasto->agrupador }}</a></td>
+                        <td class="left aligned"><a href="{{ route('localizador.show', $gasto->localizador) }}">{{ $gasto->localizador }}</a></td>
                         <td class="left aligned">{{ data_fmt($gasto->pagoem) }}</td>
                         <td class="left aligned">{{ $gasto->observacao_pgto }}</td>
                         <td class="center aligned">
