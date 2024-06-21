@@ -11,6 +11,7 @@ use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecebimentoController;
 use App\Http\Controllers\ReceitaController;
+use App\Http\Middleware\PeriodoIsOpen;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -42,9 +43,9 @@ Route::middleware('auth')->group(function () {
 // Não mudar ordem das rotas, caso contrário bugs acontecerão
 Route::middleware('auth')->group(function () {
     Route::get('/periodo/reconcile', [PeriodoController::class, 'reconcile'])->name('periodo.reconcile');
-    Route::post('/periodo/reconcile/adjust', [PeriodoController::class, 'reconcileAdjust'])->name('periodo.reconcile.adjust');
+    Route::post('/periodo/reconcile/adjust', [PeriodoController::class, 'reconcileAdjust'])->name('periodo.reconcile.adjust')->middleware(PeriodoIsOpen::class);
     Route::get('/periodo/manage', [PeriodoController::class, 'manage'])->name('periodo.manage');
-    Route::get('/periodo/{periodo}/close', [PeriodoController::class, 'close'])->name('periodo.close');
+    Route::get('/periodo/{periodo}/close', [PeriodoController::class, 'close'])->name('periodo.close')->middleware(PeriodoIsOpen::class);
     Route::get('/periodo/{periodo}/open', [PeriodoController::class, 'open'])->name('periodo.open');
     Route::get('/periodo/next', [PeriodoController::class, 'next'])->name('periodo.next');
     Route::get('/periodo/previous', [PeriodoController::class, 'previous'])->name('periodo.previous');
@@ -55,55 +56,55 @@ Route::middleware('auth')->group(function () {
 // receita
 Route::middleware('auth')->group(function () {
     Route::get('/receita/create', [ReceitaController::class, 'create'])->name('receita.create');
-    Route::post('/receita/store', [ReceitaController::class, 'store'])->name('receita.store');
+    Route::post('/receita/store', [ReceitaController::class, 'store'])->name('receita.store')->middleware(PeriodoIsOpen::class);
     Route::get('/receita/{receita_id}/show', [ReceitaController::class, 'show'])->name('receita.show');
-    Route::get('/receita/{receita_id}/edit', [ReceitaController::class, 'edit'])->name('receita.edit');
-    Route::put('/receita/update', [ReceitaController::class, 'update'])->name('receita.update');
-    Route::get('/receita/{receita_id}/delete', [ReceitaController::class, 'destroy'])->name('receita.delete');
+    Route::get('/receita/{receita_id}/edit', [ReceitaController::class, 'edit'])->name('receita.edit')->middleware(PeriodoIsOpen::class);
+    Route::put('/receita/update', [ReceitaController::class, 'update'])->name('receita.update')->middleware(PeriodoIsOpen::class);
+    Route::get('/receita/{receita_id}/delete', [ReceitaController::class, 'destroy'])->name('receita.delete')->middleware(PeriodoIsOpen::class);
     Route::get('/receita/repeat', [ReceitaController::class, 'repeat'])->name('receita.repeat');
     Route::post('/receita/repeat/confirm', [ReceitaController::class, 'repeatConfirm'])->name('receita.repeat.confirm');
     Route::post('/receita/repeat/store', [ReceitaController::class, 'repeatStore'])->name('receita.repeat.store');
     Route::get('/receita/parcel', [ReceitaController::class, 'parcel'])->name('receita.parcel');
     Route::post('/receita/parcel/confirm', [ReceitaController::class, 'parcelConfirm'])->name('receita.parcel.confirm');
     Route::post('/receita/parcel/store', [ReceitaController::class, 'parcelStore'])->name('receita.parcel.store');
-    Route::get('/receita/{receita_id}/previsao/adjust', [ReceitaController::class, 'adjustPrevisao'])->name('receita.previsao.adjust');
+    Route::get('/receita/{receita_id}/previsao/adjust', [ReceitaController::class, 'adjustPrevisao'])->name('receita.previsao.adjust')->middleware(PeriodoIsOpen::class);
 });
 
 // recebimento
 Route::middleware('auth')->group(function () {
-    Route::get('/receita/{receita_id}/recebimento/create', [RecebimentoController::class, 'create'])->name('recebimento.create');
-    Route::post('/receita/{receita_id}/recebimento/store', [RecebimentoController::class, 'store'])->name('recebimento.store');
-    Route::get('/receita/{receita_id}/recebimento/{recebimento_id}/edit', [RecebimentoController::class, 'edit'])->name('recebimento.edit');
-    Route::put('/receita/{receita_id}/recebimento/update', [RecebimentoController::class, 'update'])->name('recebimento.update');
-    Route::get('/receita/{receita_id}/recebimento/{recebimento_id}/delete', [RecebimentoController::class, 'destroy'])->name('recebimento.delete');
+    Route::get('/receita/{receita_id}/recebimento/create', [RecebimentoController::class, 'create'])->name('recebimento.create')->middleware(PeriodoIsOpen::class);
+    Route::post('/receita/{receita_id}/recebimento/store', [RecebimentoController::class, 'store'])->name('recebimento.store')->middleware(PeriodoIsOpen::class);
+    Route::get('/receita/{receita_id}/recebimento/{recebimento_id}/edit', [RecebimentoController::class, 'edit'])->name('recebimento.edit')->middleware(PeriodoIsOpen::class);
+    Route::put('/receita/{receita_id}/recebimento/update', [RecebimentoController::class, 'update'])->name('recebimento.update')->middleware(PeriodoIsOpen::class);
+    Route::get('/receita/{receita_id}/recebimento/{recebimento_id}/delete', [RecebimentoController::class, 'destroy'])->name('recebimento.delete')->middleware(PeriodoIsOpen::class);
 });
 
 // despesa
 Route::middleware('auth')->group(function () {
     Route::get('/despesa/create', [DespesaController::class, 'create'])->name('despesa.create');
-    Route::post('/despesa/store', [DespesaController::class, 'store'])->name('despesa.store');
+    Route::post('/despesa/store', [DespesaController::class, 'store'])->name('despesa.store')->middleware(PeriodoIsOpen::class);
     Route::get('/despesa/{despesa_id}/show', [DespesaController::class, 'show'])->name('despesa.show');
-    Route::get('/despesa/{despesa_id}/edit', [DespesaController::class, 'edit'])->name('despesa.edit');
-    Route::put('/despesa/update', [DespesaController::class, 'update'])->name('despesa.update');
-    Route::get('/despesa/{despesa_id}/delete', [DespesaController::class, 'destroy'])->name('despesa.delete');
+    Route::get('/despesa/{despesa_id}/edit', [DespesaController::class, 'edit'])->name('despesa.edit')->middleware(PeriodoIsOpen::class);
+    Route::put('/despesa/update', [DespesaController::class, 'update'])->name('despesa.update')->middleware(PeriodoIsOpen::class);
+    Route::get('/despesa/{despesa_id}/delete', [DespesaController::class, 'destroy'])->name('despesa.delete')->middleware(PeriodoIsOpen::class);
     Route::get('/despesa/repeat', [DespesaController::class, 'repeat'])->name('despesa.repeat');
     Route::post('/despesa/repeat/confirm', [DespesaController::class, 'repeatConfirm'])->name('despesa.repeat.confirm');
     Route::post('/despesa/repeat/store', [DespesaController::class, 'repeatStore'])->name('despesa.repeat.store');
     Route::get('/despesa/parcel', [DespesaController::class, 'parcel'])->name('despesa.parcel');
     Route::post('/despesa/parcel/confirm', [DespesaController::class, 'parcelConfirm'])->name('despesa.parcel.confirm');
     Route::post('/despesa/parcel/store', [DespesaController::class, 'parcelStore'])->name('despesa.parcel.store');
-    Route::get('/despesa/{despesa_id}/previsao/adjust', [DespesaController::class, 'adjustPrevisao'])->name('despesa.previsao.adjust');
+    Route::get('/despesa/{despesa_id}/previsao/adjust', [DespesaController::class, 'adjustPrevisao'])->name('despesa.previsao.adjust')->middleware(PeriodoIsOpen::class);
 });
 
 // gasto
 Route::middleware('auth')->group(function () {
-    Route::get('/despesa/{despesa_id}/gasto/create', [GastoController::class, 'create'])->name('gasto.create');
-    Route::post('/despesa/{despesa_id}/gasto/store', [GastoController::class, 'store'])->name('gasto.store');
-    Route::get('/despesa/{despesa_id}/gasto/{gasto_id}/edit', [GastoController::class, 'edit'])->name('gasto.edit');
-    Route::put('/despesa/{despesa_id}/gasto/update', [GastoController::class, 'update'])->name('gasto.update');
-    Route::get('/despesa/{despesa_id}/gasto/{gasto_id}/delete', [GastoController::class, 'destroy'])->name('gasto.delete');
-    Route::get('/despesa/{despesa_id}/gasto/{gasto_id}/payment', [GastoController::class, 'payment'])->name('gasto.payment');
-    Route::put('/despesa/{despesa_id}/gasto/pay', [GastoController::class, 'pay'])->name('gasto.pay');
+    Route::get('/despesa/{despesa_id}/gasto/create', [GastoController::class, 'create'])->name('gasto.create')->middleware(PeriodoIsOpen::class);
+    Route::post('/despesa/{despesa_id}/gasto/store', [GastoController::class, 'store'])->name('gasto.store')->middleware(PeriodoIsOpen::class);
+    Route::get('/despesa/{despesa_id}/gasto/{gasto_id}/edit', [GastoController::class, 'edit'])->name('gasto.edit')->middleware(PeriodoIsOpen::class);
+    Route::put('/despesa/{despesa_id}/gasto/update', [GastoController::class, 'update'])->name('gasto.update')->middleware(PeriodoIsOpen::class);
+    Route::get('/despesa/{despesa_id}/gasto/{gasto_id}/delete', [GastoController::class, 'destroy'])->name('gasto.delete')->middleware(PeriodoIsOpen::class);
+    Route::get('/despesa/{despesa_id}/gasto/{gasto_id}/payment', [GastoController::class, 'payment'])->name('gasto.payment')->middleware(PeriodoIsOpen::class);
+    Route::put('/despesa/{despesa_id}/gasto/pay', [GastoController::class, 'pay'])->name('gasto.pay')->middleware(PeriodoIsOpen::class);
 });
 
 // pessoa
