@@ -21,6 +21,10 @@
 
     </x-navbar>
 
+    <script type="module">
+        import enterastab from '/enterastab.js';
+        @stack('enterastab')
+    </script>
 </body>
 
 </html>

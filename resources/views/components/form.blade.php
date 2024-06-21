@@ -38,3 +38,7 @@
         @endisset
     </div>
 </form>
+
+@push('enterastab')
+    enterastab(document.querySelectorAll(".ui.form input, .ui.form textarea, .ui.form select, .ui.form .button")).init();
+@endpush
