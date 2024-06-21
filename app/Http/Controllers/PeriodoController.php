@@ -57,6 +57,7 @@ class PeriodoController extends Controller
     public function dashboard()
     {
         $periodo = session('periodo') ?? date('Y-m');
+        session(['periodo' => $periodo]);
         $receitas = Receita::where('periodo', $periodo)->orderBy('descricao')->get();
         $despesas = Despesa::where('periodo', $periodo)->orderBy('descricao')->get();
         $resultadoMes = resultado_periodo($periodo);
