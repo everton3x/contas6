@@ -51,6 +51,9 @@
                         <th class="left aligned">
                             Receita
                         </th>
+                        <th class="left aligned">
+                            Período
+                        </th>
                         <th class="right aligned collapsing">Previsto</th>
                         <th class="right aligned collapsing">Recebido</th>
                         <th class="right aligned collapsing">A receber</th>
@@ -74,13 +77,16 @@
                                 <a
                                     href="{{ route('receita.show', ['receita_id' => $receita->id]) }}">{{ $receita->descricao }}</a>
                             </td>
+                            <td class="left aligned">
+                                {{ periodo_fmt($receita->periodo) }}
+                            </td>
                             <td class="right aligned">{{ money_fmt($receita->valor) }}</td>
                             <td class="right aligned">{{ money_fmt($receita->totalRecebido()) }}</td>
                             <td class="right aligned">{{ money_fmt($receita->totalAReceber()) }}</td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="left aligned">Sem receitas para o período.</td>
+                            <td colspan="5" class="left aligned">Sem receitas para o período.</td>
                         </tr>
                     @endforelse
                 </tbody>
