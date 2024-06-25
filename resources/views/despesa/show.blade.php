@@ -75,7 +75,7 @@
 
         <div class="ui borderless menu">
             <div class="item">
-                <a class="ui primary button" href="{{ route('gasto.create', ['despesa_id' => $despesa->id]) }}">Gastar</a>
+                <a class="ui primary button" href="{{ route('gasto.create', ['despesa_id' => $despesa->id]) }}" accesskey="ctrl+g"><u>G</u>astar</a>
             </div>
             <div class="right menu">
                 <div class="item">

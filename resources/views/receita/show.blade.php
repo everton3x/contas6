@@ -82,7 +82,7 @@
 
         <div class="ui borderless menu">
             <div class="item">
-                <a class="ui primary button" href="{{ route('recebimento.create', ['receita_id' => $receita->id]) }}">Receber</a>
+                <a class="ui primary button" href="{{ route('recebimento.create', ['receita_id' => $receita->id]) }}" accesskey="ctrl+r"><u>R</u>eceber</a>
             </div>
             <div class="right menu">
                 <div class="item">

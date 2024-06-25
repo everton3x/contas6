@@ -1,16 +1,20 @@
 {{-- Navbar toggler --}}
 <div class="ui top fixed menu">
-    <a class="item toggler">
+    <a class="item toggler" accesskey="ctrl+m">
         <i class="sidebar icon"></i>
+        <span class="hidden-on-mobile"><u>M</u>enu</span>
         {{-- Menu --}}
     </a>
     <a class="header item hidden-on-mobile" href="{{ route('welcome') }}">{{ config('app.name') }}</a>
-    <a class="item hidden-on-mobile" href="{{ route('welcome') }}">{{ periodo_fmt(session('periodo') ?? date('Y-m')) }}</a>
+    <a class="item hidden-on-mobile" href="{{ route('welcome') }}" accesskey="ctrl+Home">
+        {{ periodo_fmt(session('periodo') ?? date('Y-m')) }}
+        <div class="left bottom floating ui label">home</div>
+    </a>
     <div class="right item">
         <form class="ui form" method="POST" action="{{ route('periodo.select') }}">
             @csrf
             <div class="inline fields">
-                <a class="ui icon button" href="{{ route('periodo.previous') }}">
+                <a class="ui icon button" href="{{ route('periodo.previous') }}" accesskey="ctrl+ArrowLeft">
                     <i class="left chevron icon"></i>
                 </a>
                 <div class="item">
@@ -18,7 +22,7 @@
                         <input type="month" name="periodo" id="periodo" value="{{ old('periodo') ?? session('periodo') ?? date('Y-m') }}" required onchange="this.form.submit()">
                     </div>
                 </div>
-                <a class="ui icon button" href="{{ route('periodo.next') }}">
+                <a class="ui icon button" href="{{ route('periodo.next') }}" accesskey="ctrl+ArrowRight">
                     <i class="right chevron icon"></i>
                 </a>
             </div>

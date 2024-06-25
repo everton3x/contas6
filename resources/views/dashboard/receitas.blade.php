@@ -6,8 +6,9 @@
             <tr>
                 <th class="left aligned">
                     Receita
-                    <a href="{{ route('receita.create') }}" class="ui right floated mini primary icon button">
+                    <a href="{{ route('receita.create') }}" class="ui right floated mini primary icon button" accesskey="ctrl+r">
                         <i class="plus icon"></i>
+                        <span class="hidden-on-mobile"><u>R</u>eceita</span>
                     </a>
                 </th>
                 <th class="right aligned collapsing">Previsto</th>

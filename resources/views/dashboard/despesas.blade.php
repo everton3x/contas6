@@ -6,8 +6,9 @@
             <tr>
                 <th class="left aligned">
                     Despesa
-                    <a href="{{ route('despesa.create') }}" class="ui right floated mini primary icon button">
+                    <a href="{{ route('despesa.create') }}" class="ui right floated mini primary icon button" accesskey="ctrl+d">
                         <i class="plus icon"></i>
+                        <span class="hidden-on-mobile"><u>D</u>espesa</span>
                     </a>
                 </th>
                 <th class="right aligned collapsing">Previsto</th>

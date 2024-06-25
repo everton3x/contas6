@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body accesskey-context>
 
     <x-navbar>
 
@@ -24,6 +24,9 @@
     <script type="module">
         import enterastab from '/enterastab.js';
         @stack('enterastab')
+
+        import accesskey from '/accesskey.js';
+        accesskey().init();
     </script>
 </body>
 
