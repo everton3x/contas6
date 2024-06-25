@@ -38,47 +38,47 @@
     <br class="hidden-on-desktop">
     <br class="hidden-on-desktop">
 
-    <a class="item" href="{{ route('welcome') }}">
-        / Início
+    <a class="item" href="{{ route('welcome') }}" accesskey="alt+0">
+        / Início <span class="hidden-on-mobile ui black label">alt+0</span>
     </a>
     <div class="item">
         <div class="header">/ Receitas</div>
         <div class="menu">
-            <a class="item" href="{{ route('receita.create') }}">&nbsp;&nbsp;&nbsp;&nbsp;Nova</a>
-            <a class="item" href="{{ route('receita.repeat') }}">&nbsp;&nbsp;&nbsp;&nbsp;Repetir</a>
-            <a class="item" href="{{ route('receita.parcel') }}">&nbsp;&nbsp;&nbsp;&nbsp;Parcelar</a>
+            <a class="item" href="{{ route('receita.create') }}" accesskey="alt+1">&nbsp;&nbsp;&nbsp;&nbsp;Nova<span class="hidden-on-mobile ui black label">alt+1</span></a>
+            <a class="item" href="{{ route('receita.repeat') }}" accesskey="alt+2">&nbsp;&nbsp;&nbsp;&nbsp;Repetir<span class="hidden-on-mobile ui black label">alt+2</span></a>
+            <a class="item" href="{{ route('receita.parcel') }}" accesskey="alt+3">&nbsp;&nbsp;&nbsp;&nbsp;Parcelar<span class="hidden-on-mobile ui black label">alt+3</span></a>
         </div>
     </div>
     <div class="item">
         <div class="header">/ Despesas</div>
         <div class="menu">
-            <a class="item" href="{{ route('despesa.create') }}">&nbsp;&nbsp;&nbsp;&nbsp;Nova</a>
-            <a class="item" href="{{ route('despesa.repeat') }}">&nbsp;&nbsp;&nbsp;&nbsp;Repetir</a>
-            <a class="item" href="{{ route('despesa.parcel') }}">&nbsp;&nbsp;&nbsp;&nbsp;Parcelar</a>
+            <a class="item" href="{{ route('despesa.create') }}" accesskey="alt+4">&nbsp;&nbsp;&nbsp;&nbsp;Nova <span class="hidden-on-mobile ui black label">alt+4</span></a>
+            <a class="item" href="{{ route('despesa.repeat') }}" accesskey="alt+5">&nbsp;&nbsp;&nbsp;&nbsp;Repetir <span class="hidden-on-mobile ui black label">alt+5</span></a>
+            <a class="item" href="{{ route('despesa.parcel') }}" accesskey="alt+6">&nbsp;&nbsp;&nbsp;&nbsp;Parcelar <span class="hidden-on-mobile ui black label">alt+6</span></a>
         </div>
     </div>
     <div class="item">
         <div class="header">/ Pesquisas</div>
         <div class="menu">
-            <a class="item" href="{{ route('filter.receita') }}">&nbsp;&nbsp;&nbsp;&nbsp;Receita</a>
-            <a class="item" href="{{ route('filter.despesa') }}">&nbsp;&nbsp;&nbsp;&nbsp;Despesa</a>
-            <a class="item" href="{{ route('filter.gasto') }}">&nbsp;&nbsp;&nbsp;&nbsp;Gasto</a>
+            <a class="item" href="{{ route('filter.receita') }}" accesskey="alt+7">&nbsp;&nbsp;&nbsp;&nbsp;Receita <span class="hidden-on-mobile ui black label">alt+7</span></a>
+            <a class="item" href="{{ route('filter.despesa') }}" accesskey="alt+8">&nbsp;&nbsp;&nbsp;&nbsp;Despesa <span class="hidden-on-mobile ui black label">alt+8</span></a>
+            <a class="item" href="{{ route('filter.gasto') }}" accesskey="alt+9">&nbsp;&nbsp;&nbsp;&nbsp;Gasto <span class="hidden-on-mobile ui black label">alt+9</span></a>
         </div>
     </div>
-    <a class="item" href="{{ route('periodo.manage') }}">
-        / Períodos
+    <a class="item" href="{{ route('periodo.manage') }}" accesskey="alt+p">
+        / Períodos <span class="hidden-on-mobile ui black label">alt+p</span>
     </a>
-    <a class="item" href="{{ route('mp.list') }}">
-        / Meios de pagamento
+    <a class="item" href="{{ route('mp.list') }}" accesskey="alt+m">
+        / Meios de pagamento <span class="hidden-on-mobile ui black label">alt+m</span>
     </a>
-    <a class="item" href="{{ route('pessoa.list') }}">
-        / Pessoas
+    <a class="item" href="{{ route('pessoa.list') }}" accesskey="alt+o">
+        / Pessoas <span class="hidden-on-mobile ui black label">alt+o</span>
     </a>
-    <a class="item" href="{{ route('agrupador.list') }}">
-        / Agrupadores
+    <a class="item" href="{{ route('agrupador.list') }}" accesskey="alt+a">
+        / Agrupadores <span class="hidden-on-mobile ui black label">alt+a</span>
     </a>
-    <a class="item" href="{{ route('localizador.list') }}">
-        / Localizadores
+    <a class="item" href="{{ route('localizador.list') }}" accesskey="alt+l">
+        / Localizadores <span class="hidden-on-mobile ui black label">alt+l</span>
     </a>
     <div class="item">
         <div class="header">/ Usuário</div>
