@@ -80,7 +80,7 @@ class FilterController extends Controller
                 and ("observacao" like "%s" or "observacao" IS NULL)
                 and ("observacao_pgto" like "%s" or "observacao_pgto" is null)
                 and ("pagoem" between "%s" and "%s" or "pagoem" is null)
-                and "gastos"."mp" like "%s"',
+                and "gastos"."mp" like "%s" order by "gastos"."valor" asc',
             $periodo1, $periodo2, $credor, $valor1, $valor2, $agrupador, $localizador, $observacao, $observacao_pgto, $pagoem1, $pagoem2, $mp));
 
         return view('filter.gasto', compact('periodo1', 'periodo2', 'credor', 'valor1', 'valor2', 'agrupador', 'localizador', 'gastos', 'pagoem1', 'pagoem2', 'mp', 'observacao', 'observacao_pgto', 'filter'));
