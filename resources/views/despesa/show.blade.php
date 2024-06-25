@@ -132,6 +132,9 @@
                                 <a href="{{ route('gasto.payment', ['despesa_id' => $despesa->id, 'gasto_id' => $gasto->id]) }}" class="ui green icon button">
                                     <i class="donate icon"></i>
                                 </a>
+                                <a href="{{ route('gasto.transpose', ['despesa_id' => $despesa->id, 'gasto_id' => $gasto->id]) }}" class="ui purple icon button">
+                                    <i class="exchange alternate icon"></i>
+                                </a>
                                 <a href="{{ route('gasto.edit', ['despesa_id' => $despesa->id, 'gasto_id' => $gasto->id]) }}" class="ui teal icon button">
                                     <i class="edit icon"></i>
                                 </a>

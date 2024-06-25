@@ -105,6 +105,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/despesa/{despesa_id}/gasto/{gasto_id}/delete', [GastoController::class, 'destroy'])->name('gasto.delete')->middleware(PeriodoIsOpen::class);
     Route::get('/despesa/{despesa_id}/gasto/{gasto_id}/payment', [GastoController::class, 'payment'])->name('gasto.payment')->middleware(PeriodoIsOpen::class);
     Route::put('/despesa/{despesa_id}/gasto/pay', [GastoController::class, 'pay'])->name('gasto.pay')->middleware(PeriodoIsOpen::class);
+    Route::get('/despesa/{despesa_id}/gasto/{gasto_id}/transpose/{periodo?}', [GastoController::class, 'transpose'])->name('gasto.transpose')->middleware(PeriodoIsOpen::class);
+    Route::put('/despesa/gasto/transpose', [GastoController::class, 'transposeStore'])->name('gasto.transpose.store')->middleware(PeriodoIsOpen::class);
 });
 
 // pessoa

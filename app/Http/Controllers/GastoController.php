@@ -6,6 +6,7 @@ use App\Models\Despesa;
 use App\Models\Gasto;
 use App\Validators\GastoValidator;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\FuncCall;
 
 class GastoController extends Controller
 {
@@ -86,5 +87,24 @@ class GastoController extends Controller
         $record->update($validator->validated());
 
         return redirect()->route('despesa.show', ['despesa_id' => $record->despesa_id])->with('success', 'Pagamento realizado.');
+    }
+
+    public function transpose(Request $request, $despesa_id, $gasto_id, $periodo = null) {
+        if($request->periodo) $periodo = $request->periodo;
+        if(is_null($periodo)) {
+            $periodo = date('Y-m');
+        }
+        $despesa = Despesa::find($despesa_id);
+        $gasto = Gasto::find($gasto_id);
+        $target = Despesa::where('periodo', $periodo)->get();
+        return view('gasto.transpose', compact('despesa', 'gasto', 'periodo', 'target'));
+    }
+
+    public function transposeStore(Request $request) {
+        $despesa_id = $request->despesa_id;
+        $gasto_id = $request->gasto_id;
+        $gasto = Gasto::find($gasto_id);
+        $gasto->update(['despesa_id' => $despesa_id]);
+        return redirect()->route('despesa.show', ['despesa_id' => $despesa_id])->with('success', 'Transposição concluída.');
     }
 }
