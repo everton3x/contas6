@@ -18,7 +18,17 @@ class FilterController extends Controller
         $agrupador = $request->agrupador ?? '%';
         $localizador = $request->localizador ?? '%';
 
-        $receitas = DB::table('receitas')->whereBetween('periodo', [$periodo1, $periodo2])->where('devedor', 'like', $devedor)->whereBetween('valor', [$valor1, $valor2])->where('agrupador', 'like', $agrupador)->where('localizador', 'like', $localizador)->get();
+        $receitas = DB::select(sprintf('
+                                select *
+                                from "receitas"
+                                where
+                                    "periodo" between "%s" and "%s"
+                                    and "devedor" like "%s"
+                                    and "valor" between %d and %d
+                                    and ("agrupador" like "%s" or "agrupador" is null)
+                                    and ("localizador" like "%s" or "localizador" is null)
+                                ', $periodo1, $periodo2, $devedor, $valor1, $valor2, $agrupador, $localizador
+                            ));
 
         return view('filter.receita', compact('periodo1', 'periodo2', 'devedor', 'valor1', 'valor2', 'agrupador', 'localizador', 'receitas'));
     }
@@ -36,7 +46,6 @@ class FilterController extends Controller
 
     public function gasto(Request $request)
     {
-        // dd($request->all());
         $filter = $request->all();
         $periodo1 = $request->periodo1 ?? date('Y-m');
         $periodo2 = $request->periodo2 ?? date('Y-m');
@@ -52,13 +61,27 @@ class FilterController extends Controller
 
         if (is_null($request->pagoem1) && is_null($request->pagoem2)) {
             $pagoem1 = '';
-            $pagoem2 = '';
+            $pagoem2 = '9999-12-31';
         } else {
             $pagoem1 = $request->pagoem1 ?? '';
-            $pagoem2 = $request->pagoem2 ?? '9999-12-31';
+            $pagoem2 = $request->pagoem2 ?? '';
         }
 
-        $gastos = DB::table('gastos')->join('despesas', 'despesas.id', '=', 'gastos.despesa_id')->whereBetween('despesas.periodo', [$periodo1, $periodo2])->where('gastos.credor', 'like', $credor)->whereBetween('gastos.valor', [$valor1, $valor2])->where('gastos.agrupador', 'like', $agrupador)->where('gastos.localizador', 'like', $localizador)->where('observacao', 'like', $observacao)->where('observacao_pgto', 'like', $observacao_pgto)->whereBetween('pagoem', [$pagoem1, $pagoem2])->where('gastos.mp', 'like', $mp)->select('gastos.*', 'despesas.descricao', 'despesas.periodo')->get();
+        $gastos = DB::select(sprintf(
+            'select "gastos".*, "despesas"."descricao", "despesas"."periodo"
+            from "gastos"
+            inner join "despesas" on "despesas"."id" = "gastos"."despesa_id"
+            where
+                "despesas"."periodo" between "%s" and "%s"
+                and "gastos"."credor" like "%s"
+                and "gastos"."valor" between %d and %d
+                and ("gastos"."agrupador" like "%s" or "gastos"."agrupador" IS NULL)
+                and ("gastos"."localizador" like "%s" or "gastos"."localizador" IS NULL)
+                and ("observacao" like "%s" or "observacao" IS NULL)
+                and ("observacao_pgto" like "%s" or "observacao_pgto" is null)
+                and ("pagoem" between "%s" and "%s" or "pagoem" is null)
+                and "gastos"."mp" like "%s"',
+            $periodo1, $periodo2, $credor, $valor1, $valor2, $agrupador, $localizador, $observacao, $observacao_pgto, $pagoem1, $pagoem2, $mp));
 
         return view('filter.gasto', compact('periodo1', 'periodo2', 'credor', 'valor1', 'valor2', 'agrupador', 'localizador', 'gastos', 'pagoem1', 'pagoem2', 'mp', 'observacao', 'observacao_pgto', 'filter'));
     }

@@ -175,9 +175,18 @@
 
         $('#checkall').change(function() {
             if (this.checked) {
+                console.log('check all');
                 $('.checkable').prop('checked', true);
+                $('#selecionado').data('value', parseFloat($('#total').data('value')));
+                $('#diferenca').text(money(0.0));
+                $('#selecionado').text(money($('#selecionado').data('value')));
+
             } else {
+                console.log('uncheck all');
                 $('.checkable').prop('checked', false);
+                $('#selecionado').data('value', 0.0);
+                $('#diferenca').text(money($('#total').data('value')));
+                $('#selecionado').text(money(0.0));
             }
         });
     </script>
