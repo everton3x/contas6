@@ -14,17 +14,24 @@
         <form class="ui form" method="POST" action="{{ route('periodo.select') }}">
             @csrf
             <div class="inline fields">
-                <a class="ui icon button" href="{{ route('periodo.previous') }}" accesskey="ctrl+ArrowLeft">
-                    <i class="left chevron icon"></i>
-                </a>
+                <div class="item">
+                    <a class="ui icon button field" href="{{ route('periodo.previous') }}" accesskey="f9">
+                        <i class="left chevron icon"></i>
+                        <span class="hidden-on-mobile">F9</span>
+                    </a>
+                </div>
                 <div class="item">
                     <div class="ui input">
-                        <input type="month" name="periodo" id="periodo" value="{{ old('periodo') ?? session('periodo') ?? date('Y-m') }}" required onchange="this.form.submit()">
+                        <input type="month" name="periodo" id="periodo" value="{{ old('periodo') ?? session('periodo') ?? date('Y-m') }}" required onchange="this.form.submit()" accesskey="f10" onclick="this.select()">
                     </div>
+                    <div class="ui left pointing label">F10</div>
                 </div>
-                <a class="ui icon button" href="{{ route('periodo.next') }}" accesskey="ctrl+ArrowRight">
-                    <i class="right chevron icon"></i>
-                </a>
+                <div class="item">
+                    <a class="ui icon button field" href="{{ route('periodo.next') }}" accesskey="f11">
+                        <span class="hidden-on-mobile">F11</span>
+                        <i class="right chevron icon"></i>
+                    </a>
+                </div>
             </div>
         </form>
     </div>
