@@ -24,7 +24,7 @@
                     <div class="ui input">
                         <input type="month" name="periodo" id="periodo" value="{{ old('periodo') ?? session('periodo') ?? date('Y-m') }}" required onchange="this.form.submit()" accesskey="f10" onclick="this.select()">
                     </div>
-                    <div class="ui left pointing label">F10</div>
+                    <div class="ui left pointing label hidden-on-mobile">F10</div>
                 </div>
                 <div class="item">
                     <a class="ui icon button field" href="{{ route('periodo.next') }}" accesskey="f11">
