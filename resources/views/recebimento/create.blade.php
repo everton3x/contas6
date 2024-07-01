@@ -17,6 +17,34 @@
                     <a href="{{ route('pessoa.show', $receita->devedor) }}">{{ $receita->devedor }}</a>
                 </div>
             </div>
+            <div class="extra content">
+                <div class="ui mini statistics">
+                    <div class="statistic">
+                      <div class="value">
+                        {{ money_fmt($receita->valor) }}
+                      </div>
+                      <div class="label">
+                        Previsto
+                      </div>
+                    </div>
+                    <div class="statistic">
+                      <div class="value">
+                        {{ money_fmt($receita->recebimentos->sum('valor')) }}
+                      </div>
+                      <div class="label">
+                        Recebido
+                      </div>
+                    </div>
+                    <div class="statistic">
+                      <div class="value">
+                        {{ money_fmt($receita->valor - $receita->recebimentos->sum('valor')) }}
+                      </div>
+                      <div class="label">
+                        A Receber
+                      </div>
+                    </div>
+                  </div>
+            </div>
         </div>
 
     </div>

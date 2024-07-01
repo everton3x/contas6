@@ -15,6 +15,35 @@
                     href="{{ route('periodo.go', $despesa->periodo) }}">{{ periodo_fmt($despesa->periodo) }}
                 </a>
             </div>
+
+            <div class="extra content">
+                <div class="ui mini statistics">
+                    <div class="statistic">
+                      <div class="value">
+                        {{ money_fmt($despesa->valor) }}
+                      </div>
+                      <div class="label">
+                        Previsto
+                      </div>
+                    </div>
+                    <div class="statistic">
+                      <div class="value">
+                        {{ money_fmt($despesa->gastos->sum('valor')) }}
+                      </div>
+                      <div class="label">
+                        Gasto
+                      </div>
+                    </div>
+                    <div class="statistic">
+                      <div class="value">
+                        {{ money_fmt($despesa->valor - $despesa->gastos->sum('valor')) }}
+                      </div>
+                      <div class="label">
+                        A Gastar
+                      </div>
+                    </div>
+                  </div>
+            </div>
         </div>
 
     </div>
