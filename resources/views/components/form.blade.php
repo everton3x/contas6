@@ -18,7 +18,7 @@
 @endphp
 <div class="ui dividing header">{{ $title }}</div>
 
-<form action="{{ $action }}" method="{{ $formMethod }}" class="ui form">
+<form action="{{ $action }}" method="{{ $formMethod }}" class="ui form" onsubmit="javascript:document.getElementById('btnSubmit').disabled = true;">
     @csrf
     @method($method)
 
@@ -29,7 +29,7 @@
 
     <div class="ui borderless menu">
         <div class="item">
-            <button type="submit" class="ui primary button">{{ $attributes->get('submitLabel') ?? 'Salvar'}}</button>
+            <button id="btnSubmit" type="submit" class="ui primary button">{{ $attributes->get('submitLabel') ?? 'Salvar'}}</button>
         </div>
         @isset($extraButtons)
             <div class="item">
