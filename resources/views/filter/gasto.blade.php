@@ -96,8 +96,10 @@
                 @endphp
                 <tr>
                     <td class="center aligned">
-                        <input type="checkbox" name="gastos[{{ $gasto->id }}]" value="{{ $gasto->id }}"
-                            class="checkable" form="pagar" data-value="{{ $gasto->valor }}" />
+                        @if ($gasto->pagoem == null)
+                            <input type="checkbox" name="gastos[{{ $gasto->id }}]" value="{{ $gasto->id }}"
+                        class="checkable" form="pagar" data-value="{{ $gasto->valor }}" />
+                        @endif
                     </td>
                     <td class="right aligned">{{ periodo_fmt($gasto->periodo) }}</td>
                     <td class="left aligned">
