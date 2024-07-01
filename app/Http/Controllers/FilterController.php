@@ -22,11 +22,11 @@ class FilterController extends Controller
                                 select *
                                 from "receitas"
                                 where
-                                    "periodo" between "%s" and "%s"
-                                    and "devedor" like "%s"
+                                    "periodo" between \'%s\' and \'%s\'
+                                    and "devedor" like \'%s\'
                                     and "valor" between %d and %d
-                                    and ("agrupador" like "%s" or "agrupador" is null)
-                                    and ("localizador" like "%s" or "localizador" is null)
+                                    and ("agrupador" like \'%s\' or "agrupador" is null)
+                                    and ("localizador" like \'%s\' or "localizador" is null)
                                 ', $periodo1, $periodo2, $devedor, $valor1, $valor2, $agrupador, $localizador
                             ));
 
@@ -76,15 +76,15 @@ class FilterController extends Controller
             from "gastos"
             inner join "despesas" on "despesas"."id" = "gastos"."despesa_id"
             where
-                "despesas"."periodo" between "%s" and "%s"
-                and "gastos"."credor" like "%s"
+                "despesas"."periodo" between \'%s\' and \'%s\'
+                and "gastos"."credor" like \'%s\'
                 and "gastos"."valor" between %d and %d
-                and ("gastos"."agrupador" like "%s" or "gastos"."agrupador" IS NULL)
-                and ("gastos"."localizador" like "%s" or "gastos"."localizador" IS NULL)
-                and ("observacao" like "%s" or "observacao" IS NULL)
-                and ("observacao_pgto" like "%s" or "observacao_pgto" is null)
-                and ("pagoem" between "%s" and "%s" or "pagoem" is null)
-                and "gastos"."mp" like "%s" order by "gastos"."valor" asc',
+                and ("gastos"."agrupador" like \'%s\' or "gastos"."agrupador" IS NULL)
+                and ("gastos"."localizador" like \'%s\' or "gastos"."localizador" IS NULL)
+                and ("observacao" like \'%s\' or "observacao" IS NULL)
+                and ("observacao_pgto" like \'%s\' or "observacao_pgto" is null)
+                and ("pagoem" between \'%s\' and \'%s\' or "pagoem" is null)
+                and "gastos"."mp" like \'%s\' order by "gastos"."valor" asc',
             $periodo1, $periodo2, $credor, $valor1, $valor2, $agrupador, $localizador, $observacao, $observacao_pgto, $pagoem1, $pagoem2, $mp));
 
         return view('filter.gasto', compact('periodo1', 'periodo2', 'credor', 'valor1', 'valor2', 'agrupador', 'localizador', 'gastos', 'pagoem1', 'pagoem2', 'mp', 'observacao', 'observacao_pgto', 'filter', 'naopagos'));
