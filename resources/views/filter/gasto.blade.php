@@ -43,6 +43,10 @@
                 <x-input.data id="pagoem2" name="pagoem2" label="Pago em Final" value="{{ $pagoem2 }}" />
                 <x-input.observacao id="observacao_pgto" name="observacao_pgto" value="{{ $observacao_pgto }}" required
                     label="Observação do pagamento" />
+                <div class="ui checkbox">
+                    <input type="checkbox" name="naopagos" id="naopagos" @checked($naopagos)>
+                    <label>Só não pagos</label>
+                </div>
             </div>
 
         </x-form>
@@ -187,6 +191,16 @@
                 $('#selecionado').data('value', 0.0);
                 $('#diferenca').text(money($('#total').data('value')));
                 $('#selecionado').text(money(0.0));
+            }
+        });
+
+        $('#naopagos').change(function() {
+            if (this.checked) {
+                $("#pagoem1").prop('disabled', true);
+                $("#pagoem2").prop('disabled', true);
+            } else {
+                $("#pagoem1").prop('disabled', false);
+                $("#pagoem2").prop('disabled', false);
             }
         });
     </script>

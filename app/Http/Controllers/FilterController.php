@@ -47,6 +47,7 @@ class FilterController extends Controller
     public function gasto(Request $request)
     {
         $filter = $request->all();
+        // dd($filter);
         $periodo1 = $request->periodo1 ?? date('Y-m');
         $periodo2 = $request->periodo2 ?? date('Y-m');
         $credor = $request->credor ?? '%';
@@ -57,9 +58,12 @@ class FilterController extends Controller
         $localizador = $request->localizador ?? '%';
         $observacao = $request->observacao ?? '%';
         $observacao_pgto = $request->observacao_pgto ?? '%';
+        $naopagos = $request->naopagos ?? '';
 
-
-        if (is_null($request->pagoem1) && is_null($request->pagoem2)) {
+        if($naopagos == 'on'){
+            $pagoem1 = null;
+            $pagoem2 = null;
+        }elseif (is_null($request->pagoem1) && is_null($request->pagoem2)) {
             $pagoem1 = '';
             $pagoem2 = '9999-12-31';
         } else {
@@ -83,7 +87,7 @@ class FilterController extends Controller
                 and "gastos"."mp" like "%s" order by "gastos"."valor" asc',
             $periodo1, $periodo2, $credor, $valor1, $valor2, $agrupador, $localizador, $observacao, $observacao_pgto, $pagoem1, $pagoem2, $mp));
 
-        return view('filter.gasto', compact('periodo1', 'periodo2', 'credor', 'valor1', 'valor2', 'agrupador', 'localizador', 'gastos', 'pagoem1', 'pagoem2', 'mp', 'observacao', 'observacao_pgto', 'filter'));
+        return view('filter.gasto', compact('periodo1', 'periodo2', 'credor', 'valor1', 'valor2', 'agrupador', 'localizador', 'gastos', 'pagoem1', 'pagoem2', 'mp', 'observacao', 'observacao_pgto', 'filter', 'naopagos'));
     }
 
     public function payment(Request $request)
