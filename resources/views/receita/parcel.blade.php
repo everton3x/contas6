@@ -10,7 +10,7 @@
             <x-input.periodo value="{{ old('periodo') ?? (session('periodo') ?? date('Y-m')) }}" required autofocus label="Período inicial" />
             <x-input.parcelas value="{{ old('parcelas', 2) }}" required label="Repetições" />
             <x-input.descricao value="{{ old('descricao') }}" required />
-            <x-input.pessoa value="{{ old('devedor') }}" :devedores="pessoas()" required />
+            <x-input.pessoa id="devedor" name="devedor" label="Devedor" value="{{ old('devedor') }}" :pessoas="pessoas()" required />
             <x-input.valor value="{{ old('valor') }}" required min="0.01" />
             <x-input.tipo-valor required />
             <x-input.vencimento value="{{ old('vencimento') }}" label="Vencimento inicial" required />
