@@ -13,7 +13,7 @@
 
         <div class="ui segment">
             <x-form title="Repetição de despesa" action="{{ route('despesa.repeat.store') }}" method="POST">
-                <x-input.hidden name="gastar" value="{{ $despesas[1]['gastar'] ?? 'on' }}" />
+                <x-input.hidden name="gastar" value="{{ $despesas[1]['gastar'] ? 'on' : 'off' }}" />
                 @foreach ($despesas as $despesa)
                     <x-input.periodo value="{{ old('periodo', $despesa['periodo']) }}" required label="Período"
                         name="periodo[{{ $despesa['parcela'] }}]" id="periodo[{{ $despesa['parcela'] }}]" />

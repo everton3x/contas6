@@ -124,7 +124,7 @@ class DespesaController extends Controller
     {
         $firstId = null;
         $parcelas = sizeof($request->get('periodo'));
-        $gastar = (bool) $request->get('gastar');
+        $gastar = ($request->get('gastar') === 'on')? true : false;
 
         for ($parcela = 1; $parcela <= $parcelas; $parcela++) {
             $despesa = Request::create(route('despesa.store'), 'POST', [
